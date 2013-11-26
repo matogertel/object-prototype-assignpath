@@ -1,6 +1,6 @@
 {
   "name": "object-prototype-assignpath",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Recursively create single property objects if needed, and assign the value to the last property created.",
   "main": "index.js",
   "scripts": {

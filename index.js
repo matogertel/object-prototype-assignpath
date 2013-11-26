@@ -11,11 +11,12 @@
  * > { a : { b: {c: 'hello', d: 'goodbye' } } }
  */
 if (!Object.prototype.assignPath) {
-    Object.prototype.assignPath = function(keyPath, value) {
-        _assignPath(this,keyPath,value)
+    Object.prototype.assignPath = function(keyPath, value, append) {
+        append = append || false;
+        _assignPath(this,keyPath,value, append);
     }
 
-    var _assignPath = function(obj,keyPath,value) {
+    var _assignPath = function(obj,keyPath,value,append) {
         lastKeyIndex = keyPath.length-1;
         for (var i = 0; i < lastKeyIndex; ++ i) {
             key = keyPath[i];
@@ -23,6 +24,16 @@ if (!Object.prototype.assignPath) {
                 obj[key] = {}
             obj = obj[key];
         }
-        obj[keyPath[lastKeyIndex]] = value;
+        if (append) {
+            if (Object.prototype.toString.call(obj[keyPath[lastKeyIndex]]) === '[object Array]') {
+                obj[keyPath[lastKeyIndex]].push(value);
+            }
+            else {
+                obj[keyPath[lastKeyIndex]] = [value];
+            }
+        }
+        else {
+            obj[keyPath[lastKeyIndex]] = value;
+        }
     }
 }
