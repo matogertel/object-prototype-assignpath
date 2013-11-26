@@ -1,0 +1,24 @@
+{
+  "name": "object-prototype-assignpath",
+  "version": "0.0.1",
+  "description": "Recursively create single property objects if needed, and assign the value to the last property created.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matogertel/object-prototype-assignpath"
+  },
+  "keywords": [
+    "object",
+    "assign",
+    "path",
+    "properties"
+  ],
+  "author": "Matias Gertel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matogertel/object-prototype-assignpath/issues"
+  }
+}
